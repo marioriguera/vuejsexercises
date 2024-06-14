@@ -1,7 +1,8 @@
 <template>
-  <div class="container h-100 w-100">
-    <h1>{{msg}}</h1>
-    <h1>{{myName}}</h1>
+  <div class="justRotate m-3">
+    <img id="vue-logo" alt="Vue logo" src="./../../assets/logo.png">
+    <h1>{{ msg }}</h1>
+    <h1>{{ myName }}</h1>
   </div>
 </template>
 
@@ -12,34 +13,32 @@ export default {
     msg: String,
     myName: String
   },
-  methods: {
-      prev() {
-        this.$refs.myCarousel.prev()
-      },
-      next() {
-        this.$refs.myCarousel.next()
-      }
-    }
+  methods: {}
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+/* Definimos la animación de rotación en el eje Y */
+@keyframes rotateY {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
+/* Aplicamos la animación solo a la imagen */
+#vue-logo {
+  animation: rotateY 5s infinite linear;
+  display: block;
+  margin: 0 auto; /* Centra la imagen */
 }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-a {
-  color: #42b983;
+/* Opcional: Estilos para centrar el contenido del div */
+.justRotate {
+  text-align: center;
+  perspective: 1000px; /* Añade perspectiva para un efecto 3D más pronunciado */
 }
 </style>

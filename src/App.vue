@@ -1,15 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Welcome msg="Welcome to Your Vue.js App" myName="Mario David Riguera Castillo" />
+  <MainLayout/>
 </template>
 
 <script>
-import Welcome from './components/common/Welcome.vue'
+/**
+ * Components import section.
+ */
+import MainLayout from './layouts/MainLayout.vue'
 
 export default {
   name: 'App',
   components: {
-    Welcome
+    MainLayout
   }
 }
 </script>

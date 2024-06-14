@@ -96,9 +96,9 @@ import "bootstrap"
 An example:
 
 ```code
-<button 
-  class="btn btn-primary" 
-  data-bs-target="#collapseTarget" 
+<button
+  class="btn btn-primary"
+  data-bs-target="#collapseTarget"
   data-bs-toggle="collapse">
   Bootstrap collapse
 </button>
@@ -106,6 +106,138 @@ An example:
   This is the toggle-able content!
 </div>
 ```
+
+## Routing
+
+How install Vue Router from the npm registry:
+
+```bash
+npm install vue-router@4
+```
+
+See more on [Routing for Vue js](https://router.vuejs.org/).
+
+## Basic structure of the SCRIPT section
+
+<p align="justify">
+  Within the <b>script</b> section, we typically export a JavaScript object that contains various properties and methods that describe the component. Here are the main elements that can be included:
+</p>
+
+```code
+<script>
+  export default {
+      name: "ComponentName", // Component name
+      components: {}, // Child components that this component can use
+      props: {}, // Properties that the component receives from its parent component
+      data() { // Component local data
+        return {};
+      },
+    computed: {}, // Computed properties based on data
+    watch: {}, // Observers to react to changes in data
+    methods: {}, // Component custom methods
+    created() { }, // Lifecycle hook: created
+    mounted() { }, // Lifecycle hook: mounted
+    updated() { }, // Lifecycle hook: updated
+    destroyed() { }, // Lifecycle hook: destroyed
+    // Other lifecycle hooks (example: beforeCreate, beforeMount, etc.)
+  };
+</script>
+```
+
+### Detailed Explanation of Each Section
+
+#### 1- name (String)
+
+- Description: Name of the component. It is used for debugging purposes and in the Vue development tool to identify components.
+- Usage: Required if you are using Vue Devtools or when debugging. It does not directly affect the operation of the component, but it is good practice to set it.
+
+#### 2- components (Object)
+
+- Description: Object that contains child components that this component can use.
+- Usage: Allows this component to use other locally defined or imported components for rendering.
+
+#### 3- props (Object)
+
+- Description: Defines the properties that the component can receive from its parent component.
+- Use: Allows communication between components by passing data from parent to child. Props are immutable: the child component should not modify the props directly.
+
+#### 4- data (Function)
+
+- Description: Function that returns an object containing the component's local data.
+- Usage: The data defined here is reactive, meaning that any changes to it will automatically update the component's view.
+
+#### 5- computed (Object)
+
+- Description: Defines computed properties based on data.
+- Use: Useful for performing calculations based on data that may depend on other reactive properties. They are cached and are only recalculated when necessary.
+
+#### 6- watch(Object)
+
+- Description: Observe changes in data and take actions based on those changes.
+- Usage: Useful for performing asynchronous operations or making changes to data in response to specific changes in other properties.
+
+#### 7- methods (Object)
+
+- Description: Contains custom methods of the component.
+- Usage: Defines functions that can be called in response to user events, such as button clicks or other user interface events.
+
+#### 8- Life Cycle Hooks
+
+- Description: Special methods that are executed at specific times during the component's life cycle.
+
+- Use: Useful for performing actions such as data initialization (created), DOM manipulation (mounted), cleaning (destroyed), among others.
+
+- Common examples include:
+
+  - created() { }: Called when the component is created, after the data properties have been initialized.
+  - mounted() { }: Called when the component has been mounted to the DOM, making it suitable for DOM manipulations and API calls.
+  - updated() { }: Called after the component is updated, which can be useful for performing additional actions after changes to data or props.
+
+### Example
+
+```code
+<script>
+  export default {
+    name: "FooterComponent",
+    props: {
+      year: {
+        type: Number,
+        default: () => new Date().getFullYear()
+      }
+    },
+    data() {
+      return {
+        message: "Este es el pie de página"
+      };
+    },
+    computed: {
+      formattedMessage() {
+        return this.message.toUpperCase();
+      }
+    },
+    methods: {
+      handleClick() {
+        alert("¡Haz clic en el pie de página!");
+      }
+    },
+    created() {
+      console.log("Componente FooterComponent creado.");
+    },
+    mounted() {
+      console.log("Componente FooterComponent montado.");
+    },
+    destroyed() {
+      console.log("Componente FooterComponent destruido.");
+    }
+  };
+</script>
+```
+
+### Conclusion
+
+<p align="justify">
+  Each section within the <b>SCRIPT<b> section of a Vue component plays a crucial role in the   definition and operation of the component. These sections allow you to manage local data, props,  custom methods, computed properties, and react to changes in the component's lifecycle.  Understanding how and when to use each of these sections is critical to developing effective and   robust Vue.js applications.
+</p>
 
 ---
 
