@@ -6,7 +6,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Welcome from "@/components/common/Welcome.vue";
 import Home from "../pages/Home.vue";
-import About from "../pages/About.vue";
+import Television from "../pages/Television.vue";
 import Contact from "../pages/Contact.vue";
 import Portfolio from "../pages/Portfolio.vue";
 
@@ -27,7 +27,7 @@ const routes = [
     },
   },
   { path: "/home", component: Home },
-  { path: "/about", component: About },
+  { path: "/television", component: Television },
   { path: "/contact", component: Contact },
   { path: "/portfolio", component: Portfolio },
 ];

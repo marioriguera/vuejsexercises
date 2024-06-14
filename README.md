@@ -239,6 +239,36 @@ See more on [Routing for Vue js](https://router.vuejs.org/).
   Each section within the <b>SCRIPT<b> section of a Vue component plays a crucial role in the   definition and operation of the component. These sections allow you to manage local data, props,  custom methods, computed properties, and react to changes in the component's lifecycle.  Understanding how and when to use each of these sections is critical to developing effective and   robust Vue.js applications.
 </p>
 
+## Animations
+
+<p align="justify">
+  Web animations allow you to create dynamic and attractive visual effects that improve the user  experience. In HTML, elements such as images, text, and shapes can be animated using CSS and,  optionally, JavaScript for more complex interactions. CSS provides powerful tools like   @keyframes to define custom animations. For example, with @keyframes, you can specify key points  in an animation, such as position, size, and color changes over time. Additionally, CSS  transitions allow you to smooth changes between element states, such as fades or slides. On the  other hand, JavaScript is used to dynamically control animations, such as triggering them in   response to user events or synchronizing multiple animations. This provides flexibility to  create everything from simple hover effects to complex animation sequences in modern web   applications. Together, HTML, CSS, and JavaScript form a powerful set of tools for creating   interactive and engaging web experiences through animations.
+</p>
+
+### Fade animation when routes change
+
+```code
+  <div class="container h-100 fade-enter-active">
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
+  </div>
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.5s ease;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+```
+
+See more on [Routing animations for Vue js](https://learnvue.co/articles/vue-router-transitions).
+
 ---
 
 <p align="center">

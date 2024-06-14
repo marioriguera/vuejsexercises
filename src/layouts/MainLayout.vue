@@ -1,10 +1,13 @@
 <template>
-  <TopNavBarComponent/>
-  <div class="container h-100">
-    <!--Welcome msg="Welcome to Your Vue.js App" myName="Mario David Riguera Castillo"/-->
-    <router-view></router-view>
+  <TopNavBarComponent />
+  <div class="container h-100 fade-enter-active">
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" />
+      </transition>
+    </router-view>
   </div>
-  <FooterComponent/>
+  <FooterComponent />
 </template>
 
 <script>
@@ -12,7 +15,6 @@
  * Components import section.
  */
 import TopNavBarComponent from '@/components/common/TopNavBarComponent.vue';
-/**import Welcome from '@/components/common/Welcome.vue';*/
 import FooterComponent from '@/components/common/FooterComponent.vue';
 
 export default {
@@ -23,12 +25,21 @@ export default {
   },
   props: {},
   methods: {},
-  components:{
+  components: {
     TopNavBarComponent,
-    /**Welcome,*/
     FooterComponent
   }
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>
