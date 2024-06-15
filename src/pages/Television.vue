@@ -1,18 +1,24 @@
 <template>
-  <div>
-    <h1>Esto es about</h1>
+  <div class="align-content-stretch">
+    <TelevisionLayout />
   </div>
 </template>
 
 <script>
+import TelevisionLayout from '@/layouts/TelevisionLayout.vue';
+
 export default {
   name: "TelevisionPage",
-  created() {},
+  created() { },
   data() {
-    return {};
+    return {
+    };
   },
   props: {},
   methods: {},
+  components: {
+    TelevisionLayout
+  }
 };
 </script>
 

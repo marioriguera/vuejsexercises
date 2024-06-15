@@ -27,9 +27,9 @@ const routes = [
     },
   },
   { path: "/home", component: Home },
+  { path: "/portfolio", component: Portfolio },
   { path: "/television", component: Television },
   { path: "/contact", component: Contact },
-  { path: "/portfolio", component: Portfolio },
 ];
 
 /**

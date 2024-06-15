@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Esto es contact</h1>
-  </div>
+  <h1>Esto es contact</h1>
 </template>
 
 <script>
@@ -16,4 +14,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped></style>

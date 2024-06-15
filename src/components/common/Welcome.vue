@@ -1,5 +1,5 @@
 <template>
-  <div class="justRotate m-3">
+  <div class="justRotate">
     <img id="vue-logo" alt="Vue logo" src="./../../assets/logo.png">
     <h1>{{ msg }}</h1>
     <h1>{{ myName }}</h1>

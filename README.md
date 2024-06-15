@@ -88,14 +88,14 @@ npm install --save @popperjs/core
 
 Add next code on **src/main**:
 
-```code
+```js
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 ```
 
 An example:
 
-```code
+```html
 <button
   class="btn btn-primary"
   data-bs-target="#collapseTarget"
@@ -123,7 +123,7 @@ See more on [Routing for Vue js](https://router.vuejs.org/).
   Within the <b>script</b> section, we typically export a JavaScript object that contains various properties and methods that describe the component. Here are the main elements that can be included:
 </p>
 
-```code
+```js
 <script>
   export default {
       name: "ComponentName", // Component name
@@ -195,7 +195,7 @@ See more on [Routing for Vue js](https://router.vuejs.org/).
 
 ### Example
 
-```code
+```js
 <script>
   export default {
     name: "FooterComponent",
@@ -247,24 +247,26 @@ See more on [Routing for Vue js](https://router.vuejs.org/).
 
 ### Fade animation when routes change
 
-```code
-  <div class="container h-100 fade-enter-active">
-    <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
-        <component :is="Component" />
-      </transition>
-    </router-view>
-  </div>
+```html
+<div class="container h-100 fade-enter-active">
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
+</div>
+```
 
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.5s ease;
-  }
+```css
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
 
-  .fade-enter-from,
-  .fade-leave-to {
-    opacity: 0;
-  }
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
 ```
 
 See more on [Routing animations for Vue js](https://learnvue.co/articles/vue-router-transitions).
