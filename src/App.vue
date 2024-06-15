@@ -1,22 +1,20 @@
 <template>
-  <MainLayout/>
+  <MainLayout />
 </template>
 
-<script>
-/**
- * Components import section.
- */
-import MainLayout from './layouts/MainLayout.vue'
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
+import MainLayout from './layouts/MainLayout.vue';
 
-export default {
-  name: 'App',
+@Options({
   components: {
-    MainLayout
-  }
-}
+    MainLayout,
+  },
+})
+export default class App extends Vue { }
 </script>
 
-<style lang="css">
+<style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
