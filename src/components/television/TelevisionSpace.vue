@@ -19,10 +19,7 @@ export default {
     console.warn("Component TelevisionSpace was created.");
   },
   updated() {
-    /// console.warn("Component TelevisionSpace was updated. Channel: " + this.channelForTelevision.name + " and " + this.channelForTelevision.embedId);
     console.warn("Component TelevisionSpace was updated with channel " + this.channelForTelevision);
-    // this.embedId = this.channelForTelevision;
-    // console.warn("this.embedId = " + this.embedId);
   },
   watch: {
     channelForTelevision(value) {
@@ -70,6 +67,18 @@ export default {
  */
 .repro-style {
   width: 100%;
-  height: 100%;
+  height: calc(90vh - 50px);
+  /* Ajusta según la altura de tu footer */
+  overflow: hidden;
+  position: relative;
+}
+
+.repro-style vue-plyr div {
+  width: 100%;
+  height: 90%;
+  max-width: 100%;
+  max-height: 90%;
+  object-fit: cover;
+  /* cover, contain, fill, etc., según el efecto deseado */
 }
 </style>
