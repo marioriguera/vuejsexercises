@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  background-color: #d3d0cb;
+  background-color: #DDBEA8;
 }
 
 body {
@@ -10,13 +10,18 @@ body {
 }
 
 .primary-color {
-  background-color: #C80421 !important;
+  background-color: #160F29 !important;
   color: white !important;
 }
 
 .secondary-color {
-  background-color: #D7C0D0 !important;
-  color: #36382e !important;
+  background-color: #246A73 !important;
+  color: white !important;
+}
+
+.terceary-color {
+  background-color: #368f8b !important;
+  color: white !important;
 }
 
 .accent-color {
@@ -29,8 +34,13 @@ body {
   color: white !important;
 }
 
-.neutral-color {
-  background-color: #d3d0cb !important;
+.first-neutral-color {
+  background-color: #F3DFC1 !important;
+  color: #36382e !important;
+}
+
+.second-neutral-color {
+  background-color: #ddbea8 !important;
   color: #36382e !important;
 }
 

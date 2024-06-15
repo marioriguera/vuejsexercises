@@ -1,6 +1,6 @@
 <template>
   <TopNavBarComponent />
-  <div class="container h-100 p-2 fade-enter-active">
+  <div class="container-fluid pt-2 ps-5 pe-5 h-100 fade-enter-active">
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
