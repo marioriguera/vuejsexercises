@@ -1,6 +1,6 @@
 <template>
   <TopNavBarComponent />
-  <div class="container-fluid pt-2 ps-5 pe-5 h-100 fade-enter-active">
+  <div class="container-fluid p-3 fade-enter-active h-auto minimum-heigt">
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
         <component :is="Component" />
@@ -41,5 +41,9 @@ export default {
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+}
+
+.minimum-heigt {
+  min-height: 100%;
 }
 </style>
