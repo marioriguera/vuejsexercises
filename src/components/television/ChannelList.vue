@@ -1,30 +1,30 @@
 <template>
   <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action selected" v-for="item in channelList"
-      :key="item.embebedId" :id="item.embebedId" type="button"
-      :class="{ 'selected': selectedChannelId === item.embebedId }" @click="selectItem(item)">
-      {{ item.name }}</a>
+      :key="item.EmbedId" :id="item.EmbedId" type="button" :class="{ 'selected': selectedChannelId === item.EmbedId }"
+      @click="selectItem(item)">
+      {{ item.Name }}</a>
   </div>
   <p>{{ selectedChannel.name }}</p>
 </template>
 
 <script>
+import { TelevisionChannel } from '@/models/television/TelevisionChannel'
+
 export default {
   name: "ChanelList",
   data() {
     return {
-      selectedChannelId: null,
-      selectedChannel: {
-        name: '',
-        embebedId: ''
-      },
+      selectedChannelId: '',
+      selectedChannel: new TelevisionChannel('', '')
+      ,
       channelList: [
-        { name: 'ABC7', embebedId: 'oFOTr81KHLg' },
-        { name: 'NBC', embebedId: '8CIgYtfXK7k' },
-        { name: 'Sky News', embebedId: 'uswcSlg5T-Q' },
-        { name: 'Al Jazeera English', embebedId: 'gCNeDWCI0vo' },
-        { name: 'ABC World News', embebedId: 'FTERRecoafo' },
-        { name: 'France 24 English', embebedId: 'tkDUSYHoKxE' },
+        new TelevisionChannel('ABC7', 'oFOTr81KHLg'),
+        new TelevisionChannel('NBC', '8CIgYtfXK7k'),
+        new TelevisionChannel('Sky News', 'uswcSlg5T-Q'),
+        new TelevisionChannel('Al Jazeera English', 'gCNeDWCI0vo'),
+        new TelevisionChannel('ABC World News', 'FTERRecoafo'),
+        new TelevisionChannel('France 24 English', 'tkDUSYHoKxE')
       ],
     };
   },
@@ -41,8 +41,7 @@ export default {
       this.sendChannel();
     },
     sendChannel() {
-      const value = this.selectedChannel;
-      this.$emit('theChannel', value);
+      this.$emit('theChannel', this.selectedChannel);
     }
   },
 };

@@ -6,25 +6,24 @@
   It includes a video player using the vue-plyr component, configured to play a YouTube video.
   -->
   <div class="repro-style">
-    <vue-plyr :key="embedId" :options="plyrOptions">
-      <div data-plyr-provider="youtube" :data-plyr-embed-id="embedId" allowfullscreen allow="autoplay" />
+    <vue-plyr :key="this.televisionChannel.EmbedId" :options="plyrOptions">
+      <div data-plyr-provider="youtube" :data-plyr-embed-id="this.televisionChannel.EmbedId" allowfullscreen
+        allow="autoplay" />
     </vue-plyr>
   </div>
 </template>
 
 <script>
+import { TelevisionChannel } from '@/models/television/TelevisionChannel';
+
 export default {
   name: "TelevisionSpace",
-  created() {
-    console.warn("Component TelevisionSpace was created.");
-  },
-  updated() {
-    console.warn("Component TelevisionSpace was updated with channel " + this.channelForTelevision);
-  },
+  created() { },
+  updated() { },
   watch: {
     channelForTelevision(value) {
-      console.warn("This is on channel for television watcher :" + value);
-      this.embedId = value;
+      console.warn("This is on channel for television watcher : " + value.Name + " " + value.EmbedId);
+      this.televisionChannel = new TelevisionChannel(value.Name, value.EmbedId);
     }
   },
   /**
@@ -33,18 +32,21 @@ export default {
    * @property {String} embedIdFromParent - The embed ID of the YouTube video, passed from the parent component.
    */
   props: {
-    channelForTelevision: String
+    channelForTelevision: {
+      Name: '',
+      EmbedId: ''
+    }
   },
   /**
    * @name data
    * @description Data properties for the component.
    * @returns {Object} The data object containing the embed ID and player options.
-   * @property {String} embedId - The embed ID of the YouTube video to be played.
+   * @property {TelevisionChannel} televisionChannel - The embed ID of the YouTube video to be played.
    * @property {Object} plyrOptions - The options object for configuring the vue-plyr component.
    */
   data() {
     return {
-      embedId: 'oFOTr81KHLg',
+      televisionChannel: new TelevisionChannel('ABC7', 'oFOTr81KHLg'),
       plyrOptions: {
         autoplay: true,
         muted: true,  // Mute the video to allow autoplay

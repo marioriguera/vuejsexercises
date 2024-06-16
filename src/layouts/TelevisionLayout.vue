@@ -1,8 +1,8 @@
 <template>
-  <h1 class="d-flex p-2">{{ tittle }} {{ channelSelected.name }}</h1>
+  <h1 class="d-flex p-2">{{ tittle }} {{ channelSelected.Name }}</h1>
   <div class="d-flex">
     <div class="p-2 flex-grow-1">
-      <TelevisionSpace :channelForTelevision="this.channelSelected.embebedId" />
+      <TelevisionSpace :channelForTelevision="this.channelSelected" />
     </div>
     <div class="p-2">
       <ChannelList @theChannel="handleChannelUpdate" />
@@ -14,6 +14,7 @@
 <script>
 import ChannelList from '@/components/television/ChannelList.vue';
 import TelevisionSpace from '@/components/television/TelevisionSpace.vue';
+import { TelevisionChannel } from '@/models/television/TelevisionChannel';
 
 export default {
   name: "TelevisionLayout",
@@ -21,7 +22,7 @@ export default {
   data() {
     return {
       tittle: 'Television',
-      channelSelected: String,
+      channelSelected: TelevisionChannel,
     };
   },
   props: {},
