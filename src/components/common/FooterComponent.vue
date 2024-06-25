@@ -5,32 +5,9 @@
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
       <!-- Left -->
       <div class="me-5 d-none d-lg-block">
-        <span>Get connected with us on social networks:</span>
+        <span>{{ footer_labels.connected }}</span>
       </div>
       <!-- Left -->
-
-      <!-- Right -->
-      <div>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="" class="me-4 text-reset">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      <!-- Right -->
     </section>
     <!-- Section: Social media -->
 
@@ -42,33 +19,31 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             <!-- Content -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              <i class="fas fa-gem me-3"></i>Company name
-            </h6>
-            <p>
-              Here you can use rows and columns to organize your footer content. Lorem ipsum
-              dolor sit amet, consectetur adipisicing elit.
+            <h6 class="text-uppercase fw-bold mb-4">{{ footer_labels.iam }}</h6>
+            <p align="justify">
+              {{ footer_texts.presentation }}
             </p>
           </div>
           <!-- Grid column -->
 
           <!-- Grid column -->
           <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">{{ footer_labels.social_m }}</h6>
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Products
-            </h6>
             <p>
-              <a href="#!" class="text-reset">Angular</a>
+              <a :href=facebook.url class="text-reset" target="_blank">{{ facebook.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">React</a>
+              <a :href=twitter.url class="text-reset" target="_blank">{{ twitter.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Vue</a>
+              <a :href=instagram.url class="text-reset" target="_blank">{{ instagram.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Laravel</a>
+              <a :href=linkedin.url class="text-reset" target="_blank">{{ linkedin.label }}</a>
+            </p>
+            <p>
+              <a :href=github.url class="text-reset" target="_blank">{{ github.label }}</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -76,20 +51,18 @@
           <!-- Grid column -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">
-              Useful links
-            </h6>
+            <h6 class="text-uppercase fw-bold mb-4">{{ footer_labels.links }}</h6>
             <p>
-              <a href="#!" class="text-reset">Pricing</a>
+              <a :href=microsoft.url class="text-reset" target="_blank">{{ microsoft.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Settings</a>
+              <a :href=dotnet.url class="text-reset" target="_blank">{{ dotnet.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Orders</a>
+              <a :href=vuejs.url class="text-reset" target="_blank">{{ vuejs.label }}</a>
             </p>
             <p>
-              <a href="#!" class="text-reset">Help</a>
+              <a :href=angular.url class="text-reset" target="_blank">{{ angular.label }}</a>
             </p>
           </div>
           <!-- Grid column -->
@@ -97,14 +70,10 @@
           <!-- Grid column -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <!-- Links -->
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
-            <p>
-              <i class="fas fa-envelope me-3"></i>
-              infoexample.com
-            </p>
-            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+            <h6 class="text-uppercase fw-bold mb-4">{{ contact.label }}</h6>
+            <p>{{ contact.address }}</p>
+            <p>{{ contact.email }}</p>
+            <p>{{ contact.phone }}</p>
           </div>
           <!-- Grid column -->
         </div>
@@ -114,9 +83,9 @@
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-      © 2024 Copyright:
-      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    <div class="text-center p-4 linkedin-copyright">
+      {{ linkedin.copyright }}
+      <a class="text-reset fw-bold" :href="linkedin" target="_blank">{{ linkedin.message }}</a>
     </div>
     <!-- Copyright -->
   </footer>
@@ -128,11 +97,69 @@ export default {
   name: "FooterComponent",
   created() { },
   data() {
-    return {};
+    return {
+      facebook: {
+        label: "Facebook",
+        url: "https://www.facebook.com/mariodavid.rigueracastillo",
+      },
+      twitter: {
+        label: "Twitter",
+        url: "https://twitter.com/MarioRiguera",
+      },
+      instagram: {
+        label: "Instagram",
+        url: "https://www.instagram.com/mario.riguera/",
+      },
+      linkedin: {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/mario-david-riguera-castillo/",
+        message: "FromMe.jajaja",
+        copyright: "© 2024 Copyright:",
+      },
+      github: {
+        label: "GitHub",
+        url: "https://github.com/marioriguera",
+      },
+      microsoft: {
+        label: "Microsoft",
+        url: "https://www.microsoft.com/",
+      },
+      dotnet: {
+        label: "DotNet",
+        url: "https://dotnet.microsoft.com/",
+      },
+      vuejs: {
+        label: "Vue JS",
+        url: "https://vuejs.org/",
+      },
+      angular: {
+        label: "Angular",
+        url: "https://angular.dev/",
+      },
+      footer_labels: {
+        connected: "Get connected with me:",
+        iam: "I am",
+        social_m: "Social media",
+        links: "Useful links",
+      },
+      footer_texts: {
+        presentation: "Mario David Riguera Castillo, a simple computer engineer from Cuba :)",
+      },
+      contact: {
+        label: "Contact",
+        address: "Barcelona, BCN 08027, ES",
+        email: "mario.riguera@gmail.com",
+        phone: "+ 34 603 03 07 59",
+      },
+    };
   },
   props: {},
   methods: {},
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.linkedin-copyright {
+  background-color: rgba(0, 0, 0, 0.05)
+}
+</style>
