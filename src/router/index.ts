@@ -7,7 +7,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Welcome from "@/components/common/Welcome.vue";
 import Home from "../pages/Home.vue";
 import Television from "../pages/Television.vue";
-import Contact from "../pages/Contact.vue";
+import Sports from "../pages/Sports.vue";
 import Portfolio from "../pages/Portfolio.vue";
 
 /**
@@ -29,7 +29,7 @@ const routes = [
   { path: "/home", component: Home },
   { path: "/portfolio", component: Portfolio },
   { path: "/television", component: Television },
-  { path: "/contact", component: Contact },
+  { path: "/sports", component: Sports },
 ];
 
 /**
